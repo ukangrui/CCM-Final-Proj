@@ -1,0 +1,137 @@
+Example 1
+Case 0:
+Input:
+[[0 7 7]
+ [7 7 7]
+ [0 7 7]]
+Output:
+[[0 0 0 0 7 7 0 7 7]
+ [0 0 0 7 7 7 7 7 7]
+ [0 0 0 0 7 7 0 7 7]
+ [0 7 7 0 7 7 0 7 7]
+ [7 7 7 7 7 7 7 7 7]
+ [0 7 7 0 7 7 0 7 7]
+ [0 0 0 0 7 7 0 7 7]
+ [0 0 0 7 7 7 7 7 7]
+ [0 0 0 0 7 7 0 7 7]]
+Case 1:
+Input:
+[[4 0 4]
+ [0 0 0]
+ [0 4 0]]
+Output:
+[[4 0 4 0 0 0 4 0 4]
+ [0 0 0 0 0 0 0 0 0]
+ [0 4 0 0 0 0 0 4 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 4 0 4 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 4 0 0 0 0]]
+Case 2:
+Input:
+[[0 0 0]
+ [0 0 2]
+ [2 0 2]]
+Output:
+[[0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 2]
+ [0 0 0 0 0 0 2 0 2]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 2 0 0 0 0 0 2]
+ [2 0 2 0 0 0 2 0 2]]
+Describing the input grid: In the input, you should see a 3x3 grid with some marked cells in various shades.
+Describing the size of the output grid: The output grid size is a 9x9 square grid.
+Describing how to transform the grid: To make the output, the input grid is enlarged to a 9x9 grid in which the original single cells are replaced with a 3x3 cluster corresponding to the position of that cell within the 3x3 grid. That is, a replicate of the input 3x3 grid is placed in an area corresponding to the position of each non-zero cell in the input grid. The cells in the grid of replicates are separated by black cells (0's).
+
+Example 2
+Case 0:
+Input:
+[[0 4 0 9]
+ [0 0 0 0]
+ [0 4 6 0]
+ [1 0 0 0]]
+Output:
+[[0 0 0 0]
+ [0 0 0 0]
+ [0 4 0 0]
+ [1 4 6 9]]
+Case 1:
+Input:
+[[0 0 0 0 0 9]
+ [0 0 0 8 0 0]
+ [0 0 0 0 0 0]
+ [4 0 0 0 0 0]
+ [4 0 7 8 0 0]
+ [4 0 7 0 0 0]]
+Output:
+[[0 0 0 0 0 0]
+ [0 0 0 0 0 0]
+ [0 0 0 0 0 0]
+ [4 0 0 0 0 0]
+ [4 0 7 8 0 0]
+ [4 0 7 8 0 9]]
+Describing the input grid: In the input, you should see some isolated colored figures on a black background. Some of these figures are singlets; some make up vertical lines.
+Describing the size of the output grid: The output grid size is the same as the input grid.
+Describing how to transform the grid: To make the output, you have to move all isolated figures to the bottom of the grid, preserving their horizontal positions. This operation can be thought as letting the colored blocks fall straight down until they hit the bottom of the grid or another colored block.
+
+Example 3
+Case 0:
+Input:
+[[0 0 0 0 2 2 0 0 1]
+ [0 1 1 0 2 2 0 0 0]
+ [0 1 1 0 0 0 0 2 2]
+ [0 0 0 0 0 0 0 2 2]
+ [1 0 2 2 0 0 0 0 0]
+ [0 0 2 2 0 1 1 0 0]
+ [0 0 0 0 0 1 1 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 1 0 0 0 0 0 0 1]]
+Output:
+[[1 1 0 0 0]]
+Case 1:
+Input:
+[[1 1 0 2 0 0 0 0 2]
+ [1 1 0 0 0 1 1 0 0]
+ [0 0 0 2 0 1 1 0 0]
+ [0 0 0 0 0 0 0 0 1]
+ [0 1 1 0 2 2 0 0 0]
+ [0 1 1 0 2 2 0 0 2]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 2 2 0 1 1 0]
+ [0 1 0 2 2 0 1 1 0]]
+Output:
+[[1 1 1 1 0]]
+Describing the input grid: In the input, you should see a 9x9 grid divided into four 4x4 square quadrants separated by a breakpoint represented by a row and a column of black cells in the middle. Some of these quadrants may contain 2x2 squares of colors either Blue or Red. Diagonal quadrants are identical.
+Describing the size of the output grid: The output grid size is 1x5.
+Describing how to transform the grid: To make the output grid, count the quantity of large squares (2x2) of each color in the grid, start by looking at the top left quadrant, from top to bottom and then from left to right. For every Blue square,  indicate by 1 (One) and for each Red square indicate by 0(Zero). So the output is a 5 cells representing the count of Blue and Red squares.
+
+Example 4
+Case 0:
+Input:
+[[0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 8 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 7 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]]
+Output:
+[[0 0 8 0 0 0 7 0 0]
+ [0 0 8 0 0 0 7 0 0]
+ [8 8 8 8 8 8 2 8 8]
+ [0 0 8 0 0 0 7 0 0]
+ [0 0 8 0 0 0 7 0 0]
+ [0 0 8 0 0 0 7 0 0]
+ [7 7 2 7 7 7 7 7 7]
+ [0 0 8 0 0 0 7 0 0]
+ [0 0 8 0 0 0 7 0 0]]
+Describing the input grid: In the input, you should see a 9x9 grid with all cells as black, except one teal cell and one orange cell. The position of these colored cells can vary.
+Describing the size of the output grid: The output grid size is the same as the input grid: 9x9.
+Describing how to transform the grid: To make the output, you have to create a vertical line of teal at the column where the teal cell is located in the input, and a vertical line of orange at the column where the orange cell is located in the input. You keep these lines uninterrupted, except at the row where the teal cell is located in the input, where you paint a horizontal line of teal. Do the same for the orange row. All other cells should be kept black. The intersection points of orange and teal lines should be changed to red.

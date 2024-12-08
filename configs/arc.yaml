@@ -1,0 +1,7 @@
+problem_set: "data/arc-prize-2024/augmented.json"
+sys_prompt: "You are a genius solving language puzzles."
+agent: "GPT"
+api_key: ""
+endpoint: "https://vllm.ml1.ritsdev.top/v1/chat/completions"
+n_completion: 1
+task: "ARC"
